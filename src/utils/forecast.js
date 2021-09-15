@@ -11,10 +11,13 @@ const forecast = (longitude, latitude, callback) => {
         } else {
             const temp = body.current.temperature
             const feelsLike = body.current.feelslike
-            callback(undefined, {Forecast: `It is ${body.current.weather_descriptions[0]} and currently ${temp} degrees out, and feels like ${feelsLike} degrees out.`
+            const description = body.current.weather_descriptions[0]
+            const humidity = body.current.humidity
+            callback(undefined, {Forecast: `It is ${description} and currently ${temp} degrees with humidity at ${humidity}%, and feels like ${feelsLike} degrees outside.`
             })
         }
     })
 }
 
 module.exports = forecast
+
