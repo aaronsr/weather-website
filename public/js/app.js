@@ -1,13 +1,5 @@
 console.log('Client side JS file is loaded.')
 
-// fetch('http://puzzle.mead.io/puzzle').then((response) => {
-//     console.log(response)
-//     response.json().then((data) => {
-//         console.log(data)
-//     })
-// })
-
-
 //element -> client side javascript
 const weatherForm = document.querySelector('form')
 const searchElement = document.querySelector('input')
@@ -24,7 +16,7 @@ weatherForm.addEventListener('submit', (e /*short for event*/)=> {
     message1.textContent = 'Loading'
     message2.textContent = ''
 
-    fetch(`http://localhost:3000/weather?address=${location}`).then((response) => {
+    fetch(`/weather?address=${location}`).then((response) => {
         response.json().then((data) => {
             //console.log(data)
             if (data.Error || data.error) {
